@@ -1,5 +1,4 @@
 const port = 3000;
-const BASE_PATH = "./public";
 const clients = new Map();
 let counter = 0;
 
@@ -18,7 +17,7 @@ Bun.serve({
             }
             return new Response(Bun.file("./public/index.html"));
         };
-        const filePath = BASE_PATH + new URL(req.url).pathname;
+        const filePath = "./public" + new URL(req.url).pathname;
         const file = Bun.file(filePath);
         return new Response(file);
     },
